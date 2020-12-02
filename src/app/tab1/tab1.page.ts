@@ -1,21 +1,30 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {RrhhService} from '../services/rrhh.service';
 import {Workers} from '../Classes/Workers';
 import {Router} from '@angular/router';
+import {EventsService} from '../services/events.service';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit{
+export class Tab1Page implements OnInit, OnDestroy{
   workers: Workers[]; // Class
   constructor(private rrhhService: RrhhService,
-              private  router: Router) {}
+              private  router: Router,
+              private eventsService_: EventsService) {}
   chipGender;
-
+  currentEvents$: Subscription;
   chipProfession;
   async ngOnInit() {
+      this.currentEvents$ = this.eventsService_.getEvents()
+          .subscribe(response => {
+              // Get all employees
+             console.log(response);
+              // Get profession chips
+          });
     // Get workers from Api
    /*this.rrhhService.getWorkers()
           .subscribe(response => {
@@ -62,6 +71,9 @@ export class Tab1Page implements OnInit{
   // naviation with params id employe
   workerDetail(id: number){
       this.router.navigate(['/tabs/tab1/worker', id]);
+  }
+  ngOnDestroy(){
+     // this.currentEvents$.unsubscribe();
   }
 }
 

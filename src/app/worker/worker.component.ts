@@ -21,11 +21,11 @@ export class WorkerPage implements OnInit {
    });
   }
   async getWorker(id: string){
-  this.rrhhService.getWorkers()
+  /*this.rrhhService.getWorkers()
        .subscribe(( response) => {
            // Find object in Objects Array from Api
           this.worker = response.find((item) => item.id === Number(id));
-        });
+        });*/
   }
 
 }
