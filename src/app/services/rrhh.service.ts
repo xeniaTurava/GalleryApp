@@ -12,6 +12,6 @@ export class RrhhService {
 
   // Get all workers in the industry
   getWorkers(): Observable <any>{
-    return this.http.get<Workers[]>('https://www.mockaroo.com/aaafc040/download?count=10&key=aa8685c0');
+    //return this.http.get<Workers[]>('https://www.mockaroo.com/aaafc040/download?count=10&key=aa8685c0');
   }
 }

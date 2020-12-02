@@ -9,7 +9,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
- imports: [//RouterModule.forChild(routes)],
+ imports: [// RouterModule.forChild(routes)],
   RouterModule.forChild([
       { path: '', component: Tab1Page },
       { path: 'worker', loadChildren: '../worker/worker.module#WorkerPageModule' },

@@ -13,17 +13,18 @@ export class Tab1Page implements OnInit{
   constructor(private rrhhService: RrhhService,
               private  router: Router) {}
   chipGender;
+
   chipProfession;
   async ngOnInit() {
     // Get workers from Api
-   this.rrhhService.getWorkers()
+   /*this.rrhhService.getWorkers()
           .subscribe(response => {
               // Get all employees
               this.workers = response;
               // Get profession chips
               this.getProfessionChips();
               this.getGenderChips();
-          });
+          });*/
   }
     getProfessionChips(){
       // Map workers professions and save to new array.
