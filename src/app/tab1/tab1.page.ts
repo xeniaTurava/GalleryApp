@@ -73,7 +73,7 @@ export class Tab1Page implements OnInit, OnDestroy{
       this.router.navigate(['/tabs/tab1/worker', id]);
   }
   ngOnDestroy(){
-     // this.currentEvents$.unsubscribe();
+     this.currentEvents$.unsubscribe();
   }
 }
 
